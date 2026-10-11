@@ -20,13 +20,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <Link href="/admin" className="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-sm">
             <LayoutDashboard size={18} /> Overview
           </Link>
-          <Link href="#" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          <Link href="/admin/parking-lots" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
             <SquareParking size={18} /> Parking Lots
           </Link>
-          <Link href="#" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          <Link href="/admin/staff" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
             <Users size={18} /> Staff Accounts
           </Link>
-          <Link href="#" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          <Link href="/admin/pricing" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
             <CircleDollarSign size={18} /> Pricing & Rates
           </Link>
         </nav>
