@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> main
 "use client";
 
 import { Volume2, Clock, Car, Banknote, LogIn, LogOut as LogOutIcon, History } from "lucide-react";
@@ -50,7 +53,11 @@ export default function EmployeeDashboard() {
           {/* Traffic Card */}
           <div className="border border-slate-100 p-5 rounded-2xl shadow-sm">
             <div className="flex justify-between items-start mb-2">
+<<<<<<< HEAD
               <h3 className="text-xs font-bold text-slate-500 tracking-wider">TODAY&apos;S TRAFFIC</h3>
+=======
+              <h3 className="text-xs font-bold text-slate-500 tracking-wider">TODAY'S TRAFFIC</h3>
+>>>>>>> main
               <div className="bg-blue-50 text-blue-600 p-1.5 rounded-lg"><Car size={16} /></div>
             </div>
             <div className="flex items-baseline gap-2 mb-2">
@@ -151,5 +158,9 @@ export default function EmployeeDashboard() {
       </div>
     </>
   );
+<<<<<<< HEAD
 }
 >>>>>>> Stashed changes
+=======
+}
+>>>>>>> main
