@@ -2,10 +2,21 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // අලුතින් එකතු කළ කොටස
 import { User, Shield, Lock, Eye, Building2, HeadphonesIcon } from "lucide-react";
 
 export default function LoginPage() {
   const [role, setRole] = useState("staff");
+  const router = useRouter(); // අලුතින් එකතු කළ කොටස
+
+  // Login බොත්තම එබූ විට සිදුවිය යුතු දේ
+  const handleLogin = () => {
+    if (role === "staff") {
+      router.push("/employee"); // සේවකයෙක් නම් Employee Dashboard එකට යයි
+    } else {
+      router.push("/admin"); // ඇඩ්මින් කෙනෙක් නම් Admin Dashboard එකට යයි
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC] p-4 font-sans text-slate-900">
@@ -20,7 +31,7 @@ export default function LoginPage() {
           <div className="flex items-center gap-2 mb-1.5">
             <h1 className="font-bold text-xl">SmartPark</h1>
             <span className="bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-0.5 rounded-md border border-blue-100 tracking-wide">
-              STAFF ACCESS
+              {role === "staff" ? "STAFF ACCESS" : "ADMIN ACCESS"}
             </span>
           </div>
           <h2 className="text-2xl font-semibold mb-2 text-slate-800">Terminal Sign In</h2>
@@ -104,8 +115,13 @@ export default function LoginPage() {
             </div>
           )}
 
-          <button type="button" className="w-full bg-[#0033A0] text-white font-semibold py-3.5 rounded-xl hover:bg-blue-900 transition-colors flex justify-center items-center gap-2 mt-2">
-            Log In to Gate Terminal <span className="text-lg">&rarr;</span>
+          {/* මෙහි onClick={handleLogin} එකතු කර ඇත */}
+          <button 
+            type="button" 
+            onClick={handleLogin}
+            className="w-full bg-[#0033A0] text-white font-semibold py-3.5 rounded-xl hover:bg-blue-900 transition-colors flex justify-center items-center gap-2 mt-2"
+          >
+            Log In to {role === "staff" ? "Gate Terminal" : "Dashboard"} <span className="text-lg">&rarr;</span>
           </button>
         </form>
 
