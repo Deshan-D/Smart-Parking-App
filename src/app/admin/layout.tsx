@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LayoutDashboard, SquareParking, Users, CircleDollarSign, Building2, Bell } from "lucide-react";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen bg-[#F4F7FB] font-sans flex text-slate-900">
       {/* Sidebar */}
@@ -16,17 +21,50 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <span className="text-[11px] font-semibold text-slate-500">Admin Console</span>
           </div>
         </div>
+        
+        {/* Navigation Links */}
         <nav className="flex-1 p-4 space-y-1.5">
-          <Link href="/admin" className="flex items-center gap-3 px-4 py-3 bg-blue-600 text-white rounded-xl font-medium shadow-sm">
+          <Link 
+            href="/admin" 
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
+              pathname === "/admin" 
+                ? "bg-blue-600 text-white shadow-sm" 
+                : "text-slate-600 hover:bg-slate-50"
+            }`}
+          >
             <LayoutDashboard size={18} /> Overview
           </Link>
-          <Link href="/admin/parking-lots" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          
+          <Link 
+            href="/admin/parking-lots" 
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
+              pathname?.startsWith("/admin/parking-lots") 
+                ? "bg-blue-600 text-white shadow-sm" 
+                : "text-slate-600 hover:bg-slate-50"
+            }`}
+          >
             <SquareParking size={18} /> Parking Lots
           </Link>
-          <Link href="/admin/staff-accounts" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          
+          <Link 
+            href="/admin/staff-accounts" 
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
+              pathname?.startsWith("/admin/staff-accounts") 
+                ? "bg-blue-600 text-white shadow-sm" 
+                : "text-slate-600 hover:bg-slate-50"
+            }`}
+          >
             <Users size={18} /> Staff Accounts
           </Link>
-          <Link href="/admin/pricing" className="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-50 rounded-xl font-medium transition-colors">
+          
+          <Link 
+            href="/admin/pricing" 
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
+              pathname?.startsWith("/admin/pricing") 
+                ? "bg-blue-600 text-white shadow-sm" 
+                : "text-slate-600 hover:bg-slate-50"
+            }`}
+          >
             <CircleDollarSign size={18} /> Pricing & Rates
           </Link>
         </nav>
